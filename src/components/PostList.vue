@@ -6,15 +6,16 @@
        <div class="posts" v-else> 
            
            <ul>
-                  <li>
-        <div class="toobar">
-          <span>全部</span>
-          <span>精华</span>
-          <span>分享</span>
-          <span>问答</span>
-          <span>招聘</span>
-        </div>
-      </li>
+                <li>
+                    
+                    <div class="toobar">
+                    <span>全部</span>
+                    <span>精华</span>
+                    <span>分享</span>
+                    <span>问答</span>
+                    <span>招聘</span>
+                    </div>
+                </li>
                <li v-for="post in postList" :key="post.id">
                    <img :src="post.author.avatar_url" alt="">
                    <span>
