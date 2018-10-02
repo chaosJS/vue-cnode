@@ -71,8 +71,6 @@ export default {
   background-color: #e1e1e1;
   height: 100vh;
 }
-.posts {
-}
 
 .PostList img {
   height: 30px;
