@@ -1,14 +1,16 @@
 <template>
-    <div class="header">
-        <div class="logo">
-        <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt="logo">
-        </div>
-        <ul>
-            <li>
-                <a href="#">首页</a>
-            </li>
-        </ul>
+  <div class="header">
+    <div class="logo">
+      <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt="logo">
     </div>
+    <ul>
+      <li>
+        <router-link :to="{name:'root'}">
+          首页
+        </router-link>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 /* eslint-disable */

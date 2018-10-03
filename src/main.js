@@ -6,18 +6,7 @@ import router from './router'
 import axios from 'axios'
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
-Vue.filter(
-  'formatDate', (str) => {
-
-  }
-)
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-})
 Vue.filter('formatDate', function (str) {
   if (!str) return ''
   var date = new Date(str)
@@ -54,4 +43,11 @@ Vue.filter('tabFormatter', function (post) {
   } else {
     return '招聘'
   }
+})
+
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
 })

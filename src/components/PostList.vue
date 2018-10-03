@@ -1,38 +1,39 @@
 <template>
-    <div class="PostList">
-       <div class="loading" v-if="isLoading">
-           <img src="../assets/loading.gif" alt="">
-       </div>
-       <div class="posts" v-else> 
-           
-           <ul>
-                <li>
-                    
-                    <div class="toobar">
-                    <span>全部</span>
-                    <span>精华</span>
-                    <span>分享</span>
-                    <span>问答</span>
-                    <span>招聘</span>
-                    </div>
-                </li>
-               <li v-for="post in postList" :key="post.id">
-                   <img :src="post.author.avatar_url" alt="">
-                   <span>
-                       <span class="replay_count">{{post.reply_count}}</span>
-                       /
-                       {{post.visit_count}}
-                    </span>
-                    <span>
-                        {{post.title}}
-                    </span>
-                    <span>
-                        {{post.last_reply_at|formatDate}}
-                    </span>
-               </li>
-           </ul>
-       </div>
+  <div class="PostList">
+    <div class="loading" v-if="isLoading">
+      <img src="../assets/loading.gif" alt="">
     </div>
+    <div class="posts" v-else>
+      <ul>
+        <li>
+
+          <div class="toobar">
+            <span>全部</span>
+            <span>精华</span>
+            <span>分享</span>
+            <span>问答</span>
+            <span>招聘</span>
+          </div>
+        </li>
+        <li v-for="post in postList" :key="post.id">
+          <img :src="post.author.avatar_url" alt="">
+          <span>
+            <span class="replay_count">{{post.reply_count}}</span>
+            / {{post.visit_count}}
+          </span>
+          <router-link :to="{name:'Article',params:{id:post.id}}">
+            <span>
+              {{post.title}}
+            </span>
+          </router-link>
+
+          <span>
+            {{post.last_reply_at|formatDate}}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 <script>
 /* eslint-disable */
