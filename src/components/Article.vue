@@ -65,6 +65,11 @@ export default {
           }
         });
     }
+  },
+  watch: {
+    $route(to, from) {
+      this.getArticleData();
+    }
   }
 };
 </script>
@@ -75,7 +80,7 @@ export default {
   padding-top: 10px;
 }
 .article_content {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
 }
 .topbar {
@@ -87,7 +92,7 @@ export default {
 }
 
 .article:not(:first-child) {
-  margin-right: 340px;
+  margin-right: 300px;
   margin-top: 15px;
 }
 

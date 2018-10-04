@@ -1,7 +1,10 @@
 <template>
   <div class="header">
     <div class="logo">
-      <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt="logo">
+      <router-link :to="{name:'root'}">
+
+        <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt="logo">
+      </router-link>
     </div>
     <ul>
       <li>

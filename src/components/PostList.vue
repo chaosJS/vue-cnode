@@ -21,8 +21,8 @@
             <span class="replay_count">{{post.reply_count}}</span>
             / {{post.visit_count}}
           </span>
-          <router-link :to="{name:'Article',params:{id:post.id}}">
-            <span>
+          <router-link :to="{name:'Article',params:{id:post.id,name:post.author.loginname}}">
+            <span class="post_title">
               {{post.title}}
             </span>
           </router-link>
@@ -31,28 +31,41 @@
             {{post.last_reply_at|formatDate}}
           </span>
         </li>
+        <li>
+          <Pagination @handleList="renderList"></Pagination>
+        </li>
       </ul>
     </div>
   </div>
 </template>
 <script>
 /* eslint-disable */
+import Pagination from "./Pagination";
 export default {
   name: "PostList",
+  components: {
+    Pagination
+  },
   data: function() {
     return {
       isLoading: true,
-      postList: []
+      postList: [],
+      postPage: 1
     };
   },
   beforeMount() {
     this.getData();
   },
   methods: {
+    renderList(value) {
+      // alert(value);
+      this.postPage = value;
+      this.getData();
+    },
     getData() {
       this.$axios
         .get("https://cnodejs.org/api/v1/topics", {
-          params: { page: 1, limit: 10 }
+          params: { page: this.postPage, limit: 10 }
         })
         .then(resp => {
           console.log(resp);
@@ -107,7 +120,11 @@ li:not(:first-child):hover {
 li:last-child:hover {
   background: white;
 }
-
+li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 li span {
   line-height: 30px;
 }
